@@ -5,11 +5,11 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('producto')
+  @Get()
   getHello1(): string {
     return this.appService.getHello();
   }
-  @Post('producto')
+  @Post()
   getHello2(): string {
     return this.appService.getHello2();
   }
