@@ -2,10 +2,19 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hola Mundo!';
+  //Base de Datos
+  private listProduct= [];
+  
+  public index(){
+    return this.listProduct;
   }
-  getHello2(): string {
-    return 'Hello World!';
+
+  public create(json){
+    return this.listProduct.push(json);
   }
+
+  public show(id){
+    this.listProduct[id -1];
+  }
+
 }

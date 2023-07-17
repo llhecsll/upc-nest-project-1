@@ -1,16 +1,33 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Req } from '@nestjs/common';
 import { AppService } from './app.service';
+import { log } from 'console';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  //Index
   @Get()
-  getHello1(): string {
-    return this.appService.getHello();
+  getProduct(){
+    return this.appService.index();
   }
+
+  //Create
   @Post()
-  getHello2(): string {
-    return this.appService.getHello2();
+  createProduct(@Body() jsonRequest : Request ){
+    return this.appService.create(jsonRequest);
   }
+
+  //Show
+  @Get(':id')
+  showProduct(@Param('id') id: string ){
+    console.log(id);
+    return this.appService.show(id);
+
+  }
+
+
+
+
+
 }
