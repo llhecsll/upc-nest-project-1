@@ -21,8 +21,14 @@ export class AppController {
   //Show
   @Get(':id')
   showProduct(@Param('id') id: string ){
-    console.log(id);
+   // console.log(id);
     return this.appService.show(id);
+  }
+
+  //Edit
+  @Post(':id')
+  editProduct(@Param('id') id: string, @Body() jsonRequest : Request ){
+    return this.appService.edit(id, jsonRequest);
 
   }
 
