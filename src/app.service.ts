@@ -39,6 +39,14 @@ export class AppService {
     return this.listProduct[id -1];
 
   }
+
+  public delete(id) {
+    this.listProduct = this.listProduct.filter((product, index) => index !== id - 1);
+  }
+
+
+
+
 //Examen mostrar datos personales
   public mostrar(id){
     return this.listPersona[id -1];

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Req } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Req } from '@nestjs/common';
 import { AppService } from './app.service';
 import { log } from 'console';
 
@@ -31,6 +31,14 @@ export class AppController {
     return this.appService.edit(id, jsonRequest);
 
   }
+
+ // Delete
+ @Delete(':id')
+ deleteProducto(@Param('id') id: string) {
+   return this.appService.delete(id);
+ }
+
+
 
   //Mostrar Examen
   @Get('/person/:id')
