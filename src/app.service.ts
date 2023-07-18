@@ -10,6 +10,15 @@ export class AppService {
       "brand": "generic"
     }
   ];
+  private listPersona =[
+    {
+      "nombre": "Hermes",
+      "apellido": "Cayalo",
+      "edad":"30",
+      "correo":"hcayalo@gmail.com",
+      "celular": "78130097"
+    }
+  ];
   
   public index(){
     return this.listProduct;
@@ -30,5 +39,21 @@ export class AppService {
     return this.listProduct[id -1];
 
   }
+//Examen mostrar datos personales
+  public mostrar(id){
+    return this.listPersona[id -1];
+  }
+
+//Examen editar datos
+public editar(id, json){
+  this.listPersona[id -1].nombre=json.nombre;
+  this.listPersona[id -1].apellido=json.apellido;
+  this.listPersona[id -1].edad=json.edad;
+  this.listPersona[id -1].correo=json.correo;
+  this.listPersona[id -1].celular=json.celular;
+  return this.listPersona[id -1];
+
+}
+
 
 }

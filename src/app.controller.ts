@@ -32,6 +32,19 @@ export class AppController {
 
   }
 
+  //Mostrar Examen
+  @Get('/person/:id')
+  mostrarDatos(@Param('id') id:string){
+    return this.appService.mostrar(id);
+
+  }
+  //Examen
+  @Post('/person/:id')
+  editPersona(@Param('id') id: string, @Body() jsonRequest : Request ){
+    return this.appService.editar(id, jsonRequest);
+
+  }
+
 
 
 
