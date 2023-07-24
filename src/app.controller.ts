@@ -5,56 +5,67 @@ import { log } from 'console';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
-
-  //Index
+ 
+ //Index
   @Get()
   getProduct(){
     return this.appService.index();
   }
+ 
+   //Create
+  @Post()
+  createProduct( ){
+    return this.appService.create();
+  }
+
+
+
+
+ 
+ //Index
+//  @Get()
+//  getProduct(){
+//    return this.appService.index();
+//  }
 
   //Create
-  @Post()
-  createProduct(@Body() jsonRequest : Request ){
-    return this.appService.create(jsonRequest);
-  }
+//  @Post()
+//  createProduct(@Body() jsonRequest : Request ){
+//    return this.appService.create(jsonRequest);
+//  }
 
   //Show
-  @Get(':id')
-  showProduct(@Param('id') id: string ){
+//  @Get(':id')
+//  showProduct(@Param('id') id: string ){
    // console.log(id);
-    return this.appService.show(id);
-  }
+//    return this.appService.show(id);
+//  }
 
   //Edit
-  @Post(':id')
-  editProduct(@Param('id') id: string, @Body() jsonRequest : Request ){
-    return this.appService.edit(id, jsonRequest);
-
-  }
+//  @Post(':id')
+//  editProduct(@Param('id') id: string, @Body() jsonRequest : Request ){
+//    return this.appService.edit(id, jsonRequest);
+//  }
 
  // Delete
- @Delete(':id')
- deleteProducto(@Param('id') id: string) {
-   return this.appService.delete(id);
- }
+// @Delete(':id')
+// deleteProducto(@Param('id') id: string) {
+//   return this.appService.delete(id);
+// }
 
 
 
-  //Mostrar Examen
-  @Get('/person/:id')
-  mostrarDatos(@Param('id') id:string){
-    return this.appService.mostrar(id);
+  //Mostrar Examen Mostrar
+//  @Get('/person/:id')
+//  mostrarDatos(@Param('id') id:string){
+//    return this.appService.mostrar(id);
+//  }
 
-  }
-  //Examen
-  @Post('/person/:id')
-  editPersona(@Param('id') id: string, @Body() jsonRequest : Request ){
-    return this.appService.editar(id, jsonRequest);
-
-  }
-
-
-
+  //Examen Editar
+//  @Post('/person/:id')
+//  editPersona(@Param('id') id: string, @Body() jsonRequest : Request ){
+//    return this.appService.editar(id, jsonRequest);
+//  }
 
 
 }
